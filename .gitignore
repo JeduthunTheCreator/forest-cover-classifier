@@ -1,0 +1,31 @@
+# ===== DATA FILES =====
+# Ignore all CSVs except creditcard.csv
+*.csv
+
+# ===== PYTHON =====
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+
+# ===== ENVIRONMENTS =====
+.env
+.venv/
+venv/
+env/
+
+# ===== PACKAGING =====
+build/
+dist/
+*.egg-info/
+
+# ===== IDE =====
+.vscode/
+.idea/
+.spyproject/
+
+# ===== MISC =====
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
