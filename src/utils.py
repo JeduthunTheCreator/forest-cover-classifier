@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import joblib
 
 from datetime import datetime
 
@@ -150,3 +151,18 @@ def save_model(model, acc, test_size, random_state, model_name):
     model.save(model_filename)
 
     return model_filename
+
+
+def save_scaler(ct, output_dir=None):
+    """ Save the fitted ColumnTransformer for use in deployment """
+    if output_dir is None:
+        output_dir = get_output_dir()
+    scaler_path = os.path.join(output_dir, 'scaler.joblib')
+    joblib.dump(ct, scaler_path)
+    print(f"Scaler saved to: {scaler_path}")
+    return scaler_path
+
+
+def load_scaler(scaler_path):
+    """ Load a saved ColumnTransformer"""
+    return joblib.load(scaler_path)

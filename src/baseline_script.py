@@ -178,7 +178,7 @@ def main():
 
         # save model
         model_path = save_model(
-            model, acc, args.test_size, args.random_state
+            model, acc, args.test_size, args.random_state, model_name='Baseline Model'
         )
 
         print(f"\n{'='*50}")

@@ -11,7 +11,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, InputLayer, Dropout
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.optimizers import Adam
-from utils import load_forestcover_data, evaluate_model, save_confusion_matrix, plot_training_curves, save_model
+from utils import load_forestcover_data, evaluate_model, save_confusion_matrix, plot_training_curves, save_model, save_scaler
 
 
 def run_training_pipeline(X, y, epochs=25, batch_size=32, test_size=0.2, random_state=42):
@@ -56,6 +56,8 @@ def run_training_pipeline(X, y, epochs=25, batch_size=32, test_size=0.2, random_
     X_train = ct.fit_transform(X_train)
     X_val = ct.transform(X_val)
     X_test = ct.transform(X_test)
+
+    save_scaler(ct)
 
     # class weights
     class_weights = compute_class_weight(
@@ -180,7 +182,7 @@ def main():
 
         # save model
         model_path = save_model(
-            model, acc, args.test_size, args.random_state
+            model, acc, args.test_size, args.random_state, model_name='Improved Model'
         )
 
         print(f"\n{'='*50}")
