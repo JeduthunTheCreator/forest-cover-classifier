@@ -36,11 +36,8 @@ documented across dedicated analysis and interpretability notebooks.
 
 ## Live Demo
 
-<!--[Link to deployed Streamlit app]  ← if you deploy it on Streamlit Cloud -->
+[Link to deployed Streamlit app](https://forest-cover-classifier-kwhtri6rkcg6lbpytzhte4.streamlit.app/)
 
-
-### Streamlit App
-streamlit run app.py
 
 ---
 
@@ -163,6 +160,10 @@ cd forest-cover-classifier
 python src/baseline_script.py --filepath cover_data.csv
 ```
 
+4. To run streamlit app locally
+```bash
+streamlit run app.py
+```
 ---
 
 ## Sample command to run Python Script in CLI
@@ -189,13 +190,13 @@ forest-cover-classifier/
 │   ├── forest_cover_eda.ipynb
 │   ├── shap_analysis.ipynb
 │
-├── output/               ← saved models and plots
-├── app.py                ← Streamlit app
+├── output/               ← saved models and plots               
 │
 ├── src/
 │   ├── baseline_script.py
 │   ├── improved_script.py
 │   ├── ensemble_script.py
+│   ├── app.py            ← Streamlit app
 │   └── utils.py
 │ 
 └── requirements.txt
